@@ -12,6 +12,10 @@ public class testLinkedList
         list.addNode(50);
         list.addNode(70);
         list.display(list.head);
-        assertTrue(list.searchNode(list.head,50));
+        int pos=list.returnNode(list.head,30);
+        System.out.println("Pos is: "+pos);
+        list.head=list.InsertPos(list.head,pos,40);
+        list.display(list.head);
+        //assertTrue(list.searchNode(list.head,50));
     }
 }

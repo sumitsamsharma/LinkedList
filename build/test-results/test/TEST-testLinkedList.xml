@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testLinkedList" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-17T14:23:08" hostname="DESKTOP-7FT5EBS" time="0.035">
+<testsuite name="testLinkedList" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-17T14:37:35" hostname="DESKTOP-7FT5EBS" time="0.031">
   <properties/>
-  <testcase name="searchTest" classname="testLinkedList" time="0.035"/>
+  <testcase name="searchTest" classname="testLinkedList" time="0.031"/>
   <system-out><![CDATA[30 -> 50 -> 70 -> 
+Pos is: 1
+40 -> 30 -> 50 -> 70 -> 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

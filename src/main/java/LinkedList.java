@@ -41,6 +41,25 @@ public class LinkedList {
         return head;
     }
 
+    static int returnNode(Node head,int data) {
+        if (head == null)
+            return 0;
+
+        if (head.data == data) {
+            return 1;
+        }
+        int count = 1;
+        Node second_last = head;
+        while (second_last.next != null) {
+            count = count + 1;
+            if (second_last.next.data == data)
+                return count;
+            second_last = second_last.next;
+        }
+
+        return 0;
+    }
+
     static boolean searchNode(Node head,int data)
     {
         if (head == null)
