@@ -26,6 +26,24 @@ public class LinkedList {
         }
     }
 
+    static Node removeLastNode(Node head)
+    {
+        if (head == null)
+            return null;
+
+        if (head.next == null) {
+            return null;
+        }
+        Node second_last = head;
+        while (second_last.next.next != null)
+            second_last = second_last.next;
+
+        // Change next of second last
+        second_last.next = null;
+
+        return head;
+    }
+
     public void addingAtStart(int data) {
 
         Node newNode = new Node(data);
@@ -125,7 +143,7 @@ public class LinkedList {
 
         System.out.print("Linked list before insertion: ");
         display(head);
-        head=removeFirstNode(head);
+        head=removeLastNode(head);
         display(head);
 
     }
