@@ -46,6 +46,17 @@ public class LinkedList {
         return new Node(data);
     }
 
+    static Node removeFirstNode(Node head)
+    {
+        if (head == null)
+            return null;
+
+        Node temp = head;
+        head = head.next;
+
+        return head;
+    }
+
     static Node InsertPos(Node headNode, int position, int data) {
         Node head = headNode;
         if (position < 1)
@@ -110,13 +121,11 @@ public class LinkedList {
 
         Node head = GetNode(56);
         head.next = GetNode(30);
+        head.next.next = GetNode(70);
 
         System.out.print("Linked list before insertion: ");
         display(head);
-
-        int data = 12, pos = 2;
-        head = InsertPos(head, pos, data);
-        System.out.print("Linked list after" + " insertion of 70 at position 2: ");
+        head=removeFirstNode(head);
         display(head);
 
     }
