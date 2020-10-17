@@ -1,4 +1,5 @@
 public class LinkedList {
+
     class Node {
         int data;
         Node next;
@@ -10,7 +11,7 @@ public class LinkedList {
     }
 
     public Node head = null;
-    public Node temp= null;
+    public Node temp = null;
 
     public void addNode(int data) {
         Node newNode = new Node(data);
@@ -25,13 +26,31 @@ public class LinkedList {
         }
     }
 
-    public void display() {
+    public void addingAtStart(int data) {
+
+        Node newNode = new Node(data);
+        if (head == null) {
+
+            head = newNode;
+            temp =newNode;
+        }
+        else
+        {
+            Node temp = head;
+            head = newNode;
+            head.next = temp;
+        }
+    }
+
+
+    public void display()
+    {
         Node current = head;
         if (head == null) {
             System.out.println("List is empty");
             return;
         }
-        System.out.println("Data of linked list: ");
+        System.out.println("Adding nodes at start.....");
         while (current != null)
         {
             System.out.print(current.data + " ");
@@ -43,8 +62,9 @@ public class LinkedList {
     public static void main(String[] args) {
 
         LinkedList List = new LinkedList();
-        List.addNode(70);
-        List.addNode(30);
-        List.addNode(56);
+        List.addingAtStart(70);
+        List.addingAtStart(30);
+        List.addingAtStart(56);
+        List.display();
     }
 }
