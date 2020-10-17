@@ -152,14 +152,6 @@ public class LinkedList {
 
     public static void main(String[] args) {
 
-        Node head = GetNode(56);
-        head.next = GetNode(30);
-        head.next.next = GetNode(70);
-
-        System.out.print("Linked list before insertion: ");
-        display(head);
-        head=removeLastNode(head);
-        display(head);
-
+        
     }
 }
