@@ -37,11 +37,26 @@ public class LinkedList {
         Node second_last = head;
         while (second_last.next.next != null)
             second_last = second_last.next;
-
-        // Change next of second last
         second_last.next = null;
-
         return head;
+    }
+
+    static boolean searchNode(Node head,int data)
+    {
+        if (head == null)
+            return false;
+
+        if (head.data==data) {
+            return true;
+        }
+        Node second_last = head;
+        while (second_last.next!= null) {
+            if (second_last.next.data == data)
+                return true;
+            second_last = second_last.next;
+        }
+
+        return false;
     }
 
     public void addingAtStart(int data) {
