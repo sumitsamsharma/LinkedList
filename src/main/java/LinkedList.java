@@ -1,6 +1,6 @@
 public class LinkedList {
 
-    class Node {
+    static class Node {
         int data;
         Node next;
 
@@ -42,29 +42,82 @@ public class LinkedList {
         }
     }
 
+     static Node GetNode(int data) {
+        return new Node(data);
+    }
 
-    public void display()
+    static Node InsertPos(Node headNode, int position, int data) {
+        Node head = headNode;
+        if (position < 1)
+            System.out.print("You entered an invalid position");
+
+        if (position == 1) {
+            Node newNode = new Node(data);
+            newNode.next = headNode;
+            head = newNode;
+        } else {
+            while (position-- != 0) {
+                if (position == 1) {
+                    Node newNode = GetNode(data);
+                    newNode.next = headNode.next;
+                    headNode.next = newNode;
+                    break;
+                }
+                headNode = headNode.next;
+            }
+            if (position != 1)
+                System.out.print("Position out of range");
+        }
+        return head;
+    }
+
+    public static void display(Node head)
     {
         Node current = head;
         if (head == null) {
             System.out.println("List is empty");
             return;
         }
-        System.out.println("Adding nodes at start.....");
+        //System.out.println("Adding nodes at start.....");
         while (current != null)
         {
-            System.out.print(current.data + " ");
+            System.out.print(current.data + " -> ");
             current = current.next;
         }
         System.out.println();
     }
 
+    public static LinkedList insert(LinkedList list, int data)
+    {
+
+        Node new_node = new Node(data);
+        new_node.next = null;
+
+        if (list.head == null) {
+            list.head = new_node;
+        }
+        else
+        {
+            Node last = list.head;
+            while (last.next != null) {
+                last = last.next; }
+            last.next = new_node;
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
 
-        LinkedList List = new LinkedList();
-        List.addingAtStart(70);
-        List.addingAtStart(30);
-        List.addingAtStart(56);
-        List.display();
+        Node head = GetNode(56);
+        head.next = GetNode(30);
+
+        System.out.print("Linked list before insertion: ");
+        display(head);
+
+        int data = 12, pos = 2;
+        head = InsertPos(head, pos, data);
+        System.out.print("Linked list after" + " insertion of 70 at position 2: ");
+        display(head);
+
     }
 }
