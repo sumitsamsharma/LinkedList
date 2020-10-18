@@ -1,10 +1,10 @@
-public class LinkedList {
+public class LinkedList < T extends Comparable<T>>{
 
-    static class Node {
-        int data;
+    static class Node <T extends Comparable<T>>{
+        public T data;
         Node next;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
             this.next = null;
         }
@@ -26,7 +26,7 @@ public class LinkedList {
         }
     }
 
-    static Node removeNodeValue(Node head,int value)
+    Node removeNodeValue(Node head, T value)
     {
         Node prev=head;
         Node curr=head;
@@ -77,7 +77,7 @@ public class LinkedList {
         return head;
     }
 
-    static int returnNode(Node head,int data) {
+    public int returnNode(Node head, T data) {
         if (head == null)
             return 0;
 
@@ -92,11 +92,10 @@ public class LinkedList {
                 return count;
             second_last = second_last.next;
         }
-
         return 0;
     }
 
-    static boolean searchNode(Node head,int data)
+    public boolean searchNode(Node head,T data)
     {
         if (head == null)
             return false;
@@ -114,7 +113,7 @@ public class LinkedList {
         return false;
     }
 
-    public void addingAtStart(int data) {
+    public void addingAtStart(T data) {
 
         Node newNode = new Node(data);
         if (head == null) {
@@ -130,7 +129,7 @@ public class LinkedList {
         }
     }
 
-     static Node GetNode(int data) {
+     public Node GetNode(T data) {
         return new Node(data);
     }
 
@@ -145,7 +144,7 @@ public class LinkedList {
         return head;
     }
 
-    static Node InsertPos(Node headNode, int position, int data) {
+    public Node InsertPos(Node headNode, int position, T data) {
         Node head = headNode;
         if (position < 1)
             System.out.print("You entered an invalid position");
